@@ -41,7 +41,7 @@ public class UserServiceImp {
             Role role = roleRepository.findByRoleName(roleName);
 
             if (role == null){
-                throw new BadRequestException(roleName + " not exist");
+                throw new BadRequestException("Role Not Found");
             }
             roles.add(role);
         }
