@@ -44,7 +44,7 @@ public class SecurityConfig {
                         .requestMatchers("/", "/login").permitAll()
                         .requestMatchers("/api/v1/users/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/v1/products/**").hasAnyRole("TEST", "USER", "ADMIN")
-                        .anyRequest().authenticated()
+                        .anyRequest().hasAnyRole("ADMIN", "USER")
                 )
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(jwtAuthenticationEntryPoint)
